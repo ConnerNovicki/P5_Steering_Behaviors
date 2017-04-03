@@ -23,14 +23,15 @@ Population.prototype.createNew = function(size) {
     }
 };
 
-Population.prototype.changeSize = function(newSize) {
+Population.prototype.changeSize = function(newSize, geometry) {
     while(newSize < this.size) {
         this.vehicles.pop();
         this.size--;
     }
     while (newSize > this.size) {
-        var veh = new Vehicle();
-        this.vehicles.push(this.getNewRandomVehicle());
+        var v = this.getNewRandomVehicle();
+        v.geometry = geometry;
+        this.vehicles.push(v);
         this.size++;
     }
 };

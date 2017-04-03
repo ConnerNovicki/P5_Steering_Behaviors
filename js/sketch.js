@@ -12,6 +12,7 @@ var randomTarget;
 var centerVector;
 var debug = false;
 var separation = false;
+var geometry = 1;
 
 function setup() {
     createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -113,7 +114,7 @@ function newTargetPosition() {
 }
 
 function changePopulation(popSize) {
-    environment.changePopulation(popSize);
+    environment.changePopulation(popSize, geometry);
 }
 
 function seekMouse() {
@@ -121,7 +122,9 @@ function seekMouse() {
 }
 
 function toggleVehicleShape() {
-    environment.toggleVehicleShape();
+  if (geometry == 1) geometry = 2;
+  else geometry = 1;
+  environment.toggleVehicleShape();
 }
 
 function flockVehicles() {

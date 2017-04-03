@@ -13,8 +13,6 @@ Environment.prototype.wrapEdges = function() {
 Environment.prototype.applyEdges = function() {
     if (this.edgeType == 1) {
         this.population.applyWrapEdges();
-    } else if (this.edgeType == 2) {
-        // TODO: Make edges repel.
     }
 };
 
@@ -31,8 +29,8 @@ Environment.prototype.createNewPopulation = function(size) {
     this.population.createNew(size);
 };
 
-Environment.prototype.changePopulation = function(newSize) {
-    this.population.changeSize(newSize);
+Environment.prototype.changePopulation = function(newSize, geometry) {
+    this.population.changeSize(newSize, geometry);
 };
 
 Environment.prototype.randomize = function() {
